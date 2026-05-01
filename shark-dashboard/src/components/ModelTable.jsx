@@ -1,71 +1,49 @@
 export default function ModelTable({ models }) {
   return (
-    <div className="card">
-      <h2 className="card-title">Model Comparison</h2>
+    <div className="glass-card">
+      <h2 className="section-title">
+        <span className="title-glow">Model</span> Comparison
+      </h2>
       <div style={{ overflowX: "auto" }}>
         <table className="model-table">
           <thead>
             <tr>
               <th>Model</th>
               <th>Accuracy</th>
-              <th></th>
-              <th>F1 Score (fatal)</th>
-              <th></th>
+              <th style={{ width: 90 }}></th>
+              <th>F1 — fatal class</th>
+              <th style={{ width: 90 }}></th>
               <th>Precision</th>
               <th>Recall</th>
-              <th>Notes</th>
+              <th>Verdict</th>
             </tr>
           </thead>
           <tbody>
             {models.map((m) => (
               <tr key={m.name} className={m.selected ? "selected-row" : ""}>
                 <td>
-                  <span style={{ fontWeight: m.selected ? "600" : "400" }}>{m.name}</span>
-                  {m.selected && <span className="badge-selected">selected</span>}
+                  <span style={{ fontWeight: m.selected ? "600" : "400", color: m.selected ? "var(--glow)" : "var(--text-dim)" }}>
+                    {m.name}
+                  </span>
+                  {m.selected && <span className="badge-winner">✦ selected</span>}
                 </td>
-
-                <td style={{ fontWeight: "500" }}>{(m.accuracy * 100).toFixed(1)}%</td>
-                <td style={{ width: "80px" }}>
+                <td style={{ fontWeight: "600", color: "#cce8ff" }}>{(m.accuracy * 100).toFixed(1)}%</td>
+                <td>
                   <div className="bar-track">
-                    <div
-                      className="bar-fill"
-                      style={{
-                        width: `${m.accuracy * 100}%`,
-                        background: m.selected ? "#1D9E75" : "#B5D4F4",
-                      }}
-                    />
+                    <div className="bar-fill" style={{ width: `${m.accuracy * 100}%`, background: m.selected ? "var(--glow)" : "#1a4a6a" }} />
                   </div>
                 </td>
-
-                <td
-                  style={{
-                    fontWeight: "500",
-                    color: m.f1 === 0 ? "#A32D2D" : m.selected ? "#1D9E75" : "#BA7517",
-                  }}
-                >
+                <td style={{ fontWeight: "600", color: m.f1 === 0 ? "#ff4444" : m.selected ? "#00e5a0" : "#f0c040" }}>
                   {m.f1.toFixed(3)}
                 </td>
-                <td style={{ width: "80px" }}>
+                <td>
                   <div className="bar-track">
-                    <div
-                      className="bar-fill"
-                      style={{
-                        width: `${m.f1 * 100}%`,
-                        background: m.f1 === 0 ? "#E24B4A" : m.selected ? "#1D9E75" : "#EF9F27",
-                      }}
-                    />
+                    <div className="bar-fill" style={{ width: `${m.f1 * 100}%`, background: m.f1 === 0 ? "#ff4444" : m.selected ? "#00e5a0" : "#f0c040" }} />
                   </div>
                 </td>
-
-                <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>
-                  {m.precision === 0 ? "—" : (m.precision * 100).toFixed(0) + "%"}
-                </td>
-                <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>
-                  {m.recall === 0 ? "—" : (m.recall * 100).toFixed(0) + "%"}
-                </td>
-                <td style={{ fontSize: "11px", color: "var(--text-muted)", maxWidth: "200px" }}>
-                  {m.note}
-                </td>
+                <td style={{ color: "var(--text-dim)", fontSize: 12 }}>{m.precision === 0 ? "—" : (m.precision * 100).toFixed(0) + "%"}</td>
+                <td style={{ color: "var(--text-dim)", fontSize: 12 }}>{m.recall === 0 ? "—" : (m.recall * 100).toFixed(0) + "%"}</td>
+                <td style={{ fontSize: 11, color: "var(--text-dim)", maxWidth: 180 }}>{m.note}</td>
               </tr>
             ))}
           </tbody>

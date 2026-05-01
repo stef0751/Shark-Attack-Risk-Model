@@ -36,10 +36,10 @@
     }
   ],
   "featureImportance": [
-    { "feature": "Activity",  "importance": 0.38, "color": "#1D9E75" },
-    { "feature": "Country",   "importance": 0.31, "color": "#378ADD" },
-    { "feature": "Age",       "importance": 0.25, "color": "#BA7517" },
-    { "feature": "Sex",       "importance": 0.06, "color": "#888780" }
+    { "feature": "Activity",  "importance": 0.38, "color": "#00e5ff" },
+    { "feature": "Country",   "importance": 0.31, "color": "#0099cc" },
+    { "feature": "Age",       "importance": 0.25, "color": "#006699" },
+    { "feature": "Sex",       "importance": 0.06, "color": "#004466" }
   ],
   "topActivities": [
     { "name": "Surfing",         "count": 1568, "fatalRate": 0.09 },
@@ -52,11 +52,11 @@
     { "name": "Paddling",        "count": 98,   "fatalRate": 0.11 }
   ],
   "topCountries": [
-    { "country": "USA",          "attacks": 1870 },
-    { "country": "Australia",    "attacks": 1090 },
-    { "country": "South Africa", "attacks": 420  },
-    { "country": "PNG",          "attacks": 130  },
-    { "country": "New Zealand",  "attacks": 95   }
+    { "country": "USA",          "attacks": 1870, "fatalRate": 0.18 },
+    { "country": "Australia",    "attacks": 1090, "fatalRate": 0.29 },
+    { "country": "South Africa", "attacks": 420,  "fatalRate": 0.31 },
+    { "country": "Papua New Guinea",          "attacks": 130,  "fatalRate": 0.42 },
+    { "country": "New Zealand",  "attacks": 95,   "fatalRate": 0.22 }
   ],
   "riskBins": [
     { "range": "0.0–0.1", "count": 140, "level": "low"    },
@@ -69,5 +69,30 @@
     { "range": "0.7–0.8", "count": 11,  "level": "high"   },
     { "range": "0.8–0.9", "count": 17,  "level": "high"   },
     { "range": "0.9–1.0", "count": 23,  "level": "high"   }
-  ]
+  ],
+  "riskWeights": {
+    "activity": {
+      "Surfing": 0.09,
+      "Swimming": 0.32,
+      "Fishing": 0.14,
+      "Diving": 0.22,
+      "Free diving": 0.45,
+      "Standing/Wading": 0.18,
+      "Snorkeling": 0.22,
+      "Paddling": 0.11,
+      "Spearfishing": 0.28,
+      "Boating": 0.08
+    },
+    "country": {
+      "USA": 0.18,
+      "Australia": 0.29,
+      "South Africa": 0.31,
+      "Papua New Guinea": 0.42,
+      "New Zealand": 0.22,
+      "Brazil": 0.35,
+      "Bahamas": 0.19,
+      "Other": 0.20
+    },
+    "ageMultiplier": { "child": 1.3, "young": 1.0, "adult": 0.95, "senior": 1.1 }
+  }
 }
