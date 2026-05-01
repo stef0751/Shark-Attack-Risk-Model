@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg:           #f4f3ef;
+  --surface:      #ffffff;
+  --border:       #e2e0d8;
+  --text-primary: #1a1a1a;
+  --text-muted:   #777;
+  --navy:         #0a2640;
+  --green:        #1D9E75;
+  --red:          #E24B4A;
+  --amber:        #BA7517;
+  --blue:         #378ADD;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.header {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.4px;
+  margin-bottom: 4px;
+}
+
+.header p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 14px;
+}
+
+.header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header-badge {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.team-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 5px 14px 5px 5px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+}
+
+.team-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ── Section labels ──────────────────────────────── */
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+/* ── Metric cards ────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.metric-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── Generic card ────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.card-footnote {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ── Two / three column grids ────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 700px) {
+  .two-col, .three-col { grid-template-columns: 1fr; }
+}
+
+/* ── Model table ─────────────────────────────────── */
+.model-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.model-table th {
+  text-align: left;
+  padding: 0 12px 10px 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.model-table td {
+  padding: 11px 12px 11px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.model-table tr:last-child td { border-bottom: none; }
+
+.selected-row { background: rgba(29,158,117,0.05); }
+
+.badge-selected {
+  background: #EAF3DE;
+  color: #3B6D11;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.bar-track {
+  background: #eee;
+  border-radius: 3px;
+  height: 6px;
+  width: 80px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+/* ── Risk legend ─────────────────────────────────── */
+.risk-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.risk-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.risk-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── Activity chart legend ───────────────────────── */
+.chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* ── Key finding banner ──────────────────────────── */
+.finding-banner {
+  background: #f0f9f5;
+  border: 1px solid #b8e2d0;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1.25rem;
+}
+
+.finding-banner .icon { font-size: 20px; flex-shrink: 0; }
+
+.finding-banner strong {
+  font-weight: 500;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.finding-banner p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}

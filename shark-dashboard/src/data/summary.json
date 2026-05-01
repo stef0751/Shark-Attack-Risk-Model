@@ -1,0 +1,73 @@
+{
+  "dataset": {
+    "raw": 25723,
+    "cleaned": 4901,
+    "fatal": 1174,
+    "nonfatal": 3727,
+    "modelRows": 3006
+  },
+  "models": [
+    {
+      "name": "Logistic Regression",
+      "accuracy": 0.804,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "selected": false,
+      "note": "Predicts majority class only — zero fatal recall"
+    },
+    {
+      "name": "Random Forest",
+      "accuracy": 0.781,
+      "f1": 0.333,
+      "precision": 0.41,
+      "recall": 0.28,
+      "selected": true,
+      "note": "Best minority class detection; powers risk scoring"
+    },
+    {
+      "name": "Decision Tree",
+      "accuracy": 0.739,
+      "f1": 0.379,
+      "precision": 0.36,
+      "recall": 0.41,
+      "selected": false,
+      "note": "Higher F1 but lower accuracy; prone to overfitting"
+    }
+  ],
+  "featureImportance": [
+    { "feature": "Activity",  "importance": 0.38, "color": "#1D9E75" },
+    { "feature": "Country",   "importance": 0.31, "color": "#378ADD" },
+    { "feature": "Age",       "importance": 0.25, "color": "#BA7517" },
+    { "feature": "Sex",       "importance": 0.06, "color": "#888780" }
+  ],
+  "topActivities": [
+    { "name": "Surfing",         "count": 1568, "fatalRate": 0.09 },
+    { "name": "Swimming",        "count": 1372, "fatalRate": 0.32 },
+    { "name": "Fishing",         "count": 490,  "fatalRate": 0.14 },
+    { "name": "Diving",          "count": 343,  "fatalRate": 0.22 },
+    { "name": "Free diving",     "count": 196,  "fatalRate": 0.45 },
+    { "name": "Standing/Wading", "count": 245,  "fatalRate": 0.18 },
+    { "name": "Snorkeling",      "count": 147,  "fatalRate": 0.22 },
+    { "name": "Paddling",        "count": 98,   "fatalRate": 0.11 }
+  ],
+  "topCountries": [
+    { "country": "USA",          "attacks": 1870 },
+    { "country": "Australia",    "attacks": 1090 },
+    { "country": "South Africa", "attacks": 420  },
+    { "country": "PNG",          "attacks": 130  },
+    { "country": "New Zealand",  "attacks": 95   }
+  ],
+  "riskBins": [
+    { "range": "0.0–0.1", "count": 140, "level": "low"    },
+    { "range": "0.1–0.2", "count": 99,  "level": "low"    },
+    { "range": "0.2–0.3", "count": 63,  "level": "low"    },
+    { "range": "0.3–0.4", "count": 46,  "level": "medium" },
+    { "range": "0.4–0.5", "count": 33,  "level": "medium" },
+    { "range": "0.5–0.6", "count": 22,  "level": "medium" },
+    { "range": "0.6–0.7", "count": 15,  "level": "high"   },
+    { "range": "0.7–0.8", "count": 11,  "level": "high"   },
+    { "range": "0.8–0.9", "count": 17,  "level": "high"   },
+    { "range": "0.9–1.0", "count": 23,  "level": "high"   }
+  ]
+}
