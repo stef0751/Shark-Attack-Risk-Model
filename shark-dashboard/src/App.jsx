@@ -82,14 +82,12 @@ export default function App() {
 
         {/* ── Key Finding ── */}
         <div className="finding-banner">
-          <span className="icon">💡</span>
           <div>
             <strong>Key finding</strong>
             <p>
-              Logistic Regression achieved the highest raw accuracy (80.4%) but completely failed to detect
-              fatal attacks — F1 score of 0.00 — making it useless for this task. Random Forest was selected
-              because it successfully identifies fatal cases and produces the probability estimates that power
-              the risk score above. In imbalanced classification, accuracy alone is a misleading metric.
+            The strongest predictors were activity type, shark species, and injury severity.  
+            Diving and free diving were far more fatal than surfing or swimming. Highest risk scores 
+            showed up in scenarios with larger species and more isolated waters. Some of these results were genuinely surprising and showed how much more nuanced the story gets when you actually look at the data instead of just going off what you see in the news.
             </p>
           </div>
         </div>

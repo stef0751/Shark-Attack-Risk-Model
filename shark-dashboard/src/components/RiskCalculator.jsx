@@ -29,12 +29,12 @@ export default function RiskCalculator() {
   const calculate = () => {
     let base = ACTIVITY_WEIGHTS[activity] * 0.38
              + COUNTRY_WEIGHTS[country] * 0.31;
-    // Age factor (feature importance 0.25)
+    //age factor (feature importance 0.25)
     let ageFactor = age < 12 ? 1.3 : age < 30 ? 1.0 : age < 50 ? 0.9 : 1.1;
     base += (ageFactor * 0.1) * 0.25;
-    // Sex factor (feature importance 0.06)
+    //sex factor (feature importance 0.06)
     base += (sex === "M" ? 0.06 : 0.02) * 0.06;
-    // Clamp
+    //clamp
     const final = Math.min(Math.max(base, 0.03), 0.92);
     setScore(final);
     setCalculated(true);
@@ -46,7 +46,6 @@ export default function RiskCalculator() {
   return (
     <div className="calc-card">
       <div className="calc-header">
-        <span className="calc-icon">⚡</span>
         <div>
           <h2 className="calc-title">Risk Score Calculator</h2>
           <p className="calc-subtitle">Powered by our Random Forest model</p>
