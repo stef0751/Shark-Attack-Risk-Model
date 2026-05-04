@@ -82,7 +82,7 @@ Then open `http://localhost:5173` in your browser.
 
 ---
 
-## Honest limitations
+## Some limitations
 
 - Species and time of day had too many missing values to use reliably
 - We used label encoding instead of one-hot encoding for categories
