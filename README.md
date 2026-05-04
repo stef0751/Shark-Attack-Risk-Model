@@ -72,6 +72,7 @@ npm run dev
 ```
 
 Then open `http://localhost:5173` in your browser.
+Note: if you are not able to run the dashboard, please take a look at our Demo Video instead.
 
 ---
 
