@@ -38,16 +38,16 @@ everything into a risk score and an interactive dashboard.
 
 ## The models
 
-| Model | Accuracy | F1 (Fatal) | Recall |
-|---|---|---|---|
-| Logistic Regression | 80.4% | 0.000 | 0.00 |
-| Decision Tree | 73.9% | 0.379 | 0.41 |
-| Random Forest | 77.7% | 0.323 | 0.27 |
+| Model | Accuracy | F1 (Fatal) | Precision | Recall |
+|---|---|---|---|---|
+| Logistic Regression | 80.4% | 0.000 | — | 0.00 |
+| Decision Tree | 73.9% | 0.379 | 36% | 0.41 |
+| Random Forest | 78.1% | 0.333 | 41% | 0.28 |
 
-Logistic Regression got 80.4% accuracy but predicted literally zero fatal cases. That happens because 
-76% of the dataset is non-fatal, so if you just predict "non-fatal" every 
-single time, you still get 76% accuracy. That's why we used F1 score as 
-our main metric instead.
+Logistic Regression got 80.4% accuracy but predicted literally zero fatal 
+cases. That happens because 80% of the dataset is non-fatal, if you just 
+predict "non-fatal" every single time, you still get 80% accuracy. That's 
+why we used F1 score as our main metric instead.
 
 ---
 
