@@ -4,11 +4,12 @@
 
 ---
 
-## What is this?
+## Watch our [DEMO HERE!](https://drive.google.com/file/d/1xV0j-ajW7h8PXg8F3wqkTSHUZfOoMjPR/view?usp=sharing)
+
+## What is our project?
 
 Both of us joined the RU Surfing Club this year and started spending a lot more 
-time at the ocean. That naturally got us curious about shark attack safety — not 
-in a panicked way, but in a "what does the data actually say" kind of way. Most 
+time in the ocean. That naturally got us curious about shark attack safety. Most 
 of what you see in the news focuses on how many attacks happen or where. We 
 wanted to ask a different question:
 
@@ -23,15 +24,13 @@ everything into a risk score and an interactive dashboard.
 
 ## What we actually did
 
-- Cleaned and standardized a dataset that was honestly a mess — 
-  inconsistent spellings, missing values, ages written as text, 
-  you name it
+- Cleaned and standardized a dataset that contained raw, messy data: 
+  inconsistent spellings, missing values, ages written as text, etc.
 - Did exploratory analysis to understand distributions across activity 
-  type, country, age, and gender before touching any models
+  type, country, age, and gender 
 - Trained and compared three classifiers: Logistic Regression, 
   Decision Tree, and Random Forest
-- Evaluated using F1 score, precision, and recall — not just accuracy, 
-  because accuracy alone was misleading here 
+- Evaluated using F1 score, precision, and recall 
 - Built a risk score using Random Forest predicted probabilities
 - Built an interactive React dashboard to visualize everything
 
@@ -45,9 +44,8 @@ everything into a risk score and an interactive dashboard.
 | Decision Tree | 73.9% | 0.379 | 0.41 |
 | Random Forest | 77.7% | 0.323 | 0.27 |
 
-The accuracy thing is worth explaining. Logistic Regression got 80.4% 
-accuracy but predicted literally zero fatal cases. That happens because 
-76% of the dataset is non-fatal — if you just predict "non-fatal" every 
+Logistic Regression got 80.4% accuracy but predicted literally zero fatal cases. That happens because 
+76% of the dataset is non-fatal, so if you just predict "non-fatal" every 
 single time, you still get 76% accuracy. That's why we used F1 score as 
 our main metric instead.
 
@@ -90,4 +88,4 @@ Then open `http://localhost:5173` in your browser.
 - We used label encoding instead of one-hot encoding for categories
 - The dataset has reporting bias toward more dramatic incidents
 - Class imbalance (76/24 split) made it hard for models to learn 
-  fatal cases well — SMOTE or class weighting could help here
+  fatal cases well 
