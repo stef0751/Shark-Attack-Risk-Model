@@ -32,14 +32,14 @@
       "precision": 0.36,
       "recall": 0.41,
       "selected": false,
-      "note": "Higher F1 but lower accuracy; prone to overfitting"
+      "note": "Higher recall but lower accuracy; prone to overfitting"
     }
   ],
   "featureImportance": [
-    { "feature": "Activity",  "importance": 0.38, "color": "#00e5ff" },
-    { "feature": "Country",   "importance": 0.31, "color": "#0099cc" },
-    { "feature": "Age",       "importance": 0.25, "color": "#006699" },
-    { "feature": "Sex",       "importance": 0.06, "color": "#004466" }
+    { "feature": "Age",      "importance": 0.36, "color": "#00e5ff" },
+    { "feature": "Activity", "importance": 0.34, "color": "#0099cc" },
+    { "feature": "Country",  "importance": 0.28, "color": "#006699" },
+    { "feature": "Sex",      "importance": 0.02, "color": "#003a55" }
   ],
   "topActivities": [
     { "name": "Surfing",         "count": 1568, "fatalRate": 0.09 },
@@ -52,11 +52,11 @@
     { "name": "Paddling",        "count": 98,   "fatalRate": 0.11 }
   ],
   "topCountries": [
-    { "country": "USA",          "attacks": 1870, "fatalRate": 0.18 },
-    { "country": "Australia",    "attacks": 1090, "fatalRate": 0.29 },
-    { "country": "South Africa", "attacks": 420,  "fatalRate": 0.31 },
-    { "country": "Papua New Guinea",          "attacks": 130,  "fatalRate": 0.42 },
-    { "country": "New Zealand",  "attacks": 95,   "fatalRate": 0.22 }
+    { "country": "USA",              "attacks": 1870, "fatalRate": 0.18 },
+    { "country": "Australia",        "attacks": 1090, "fatalRate": 0.29 },
+    { "country": "South Africa",     "attacks": 420,  "fatalRate": 0.31 },
+    { "country": "Papua New Guinea", "attacks": 130,  "fatalRate": 0.42 },
+    { "country": "New Zealand",      "attacks": 95,   "fatalRate": 0.22 }
   ],
   "riskBins": [
     { "range": "0.0–0.1", "count": 140, "level": "low"    },
