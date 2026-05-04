@@ -65,6 +65,37 @@ our main metric instead.
 
 ---
 
+## Running the analysis
+
+### Requirements
+Make sure you have Python 3 installed. Then install the required libraries by running:
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn
+```
+
+### Steps
+1. Download or clone this repository
+2. Place the `attacks.csv` file in the same folder as `analysis.ipynb`
+3. Open the notebook:
+```bash
+jupyter notebook analysis.ipynb
+```
+4. Run all cells in order from top to bottom using **Cell → Run All** 
+   or by pressing **Shift + Enter** on each cell individually
+
+### What to expect
+- The notebook will print dataset shape and class distributions at 
+  each major step so you can follow along
+- Five EDA plots will appear inline as the cells run
+- Model results including accuracy, F1 score, and full classification 
+  reports will print for all three classifiers
+- A feature importance chart and risk score distribution histogram 
+  will appear at the end
+
+> **Note:** The `attacks.csv` file must be in the same directory as 
+> the notebook or the first cell will throw a FileNotFoundError.
+
 ## Running the dashboard
 
 ```bash
