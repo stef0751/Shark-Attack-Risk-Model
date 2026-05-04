@@ -46,7 +46,10 @@ export default function ActivityChart({ activities }) {
       },
     },
     scales: {
-      x: { grid: { display: false }, ticks: { color: "#4a8fa8", font: { size: 10 }, maxRotation: 25 } },
+      x: {
+        grid: { display: false },
+        ticks: { color: "#4a8fa8", font: { size: 10 }, maxRotation: 25 },
+      },
       y: {
         position: "left",
         grid: { color: "rgba(0,180,255,0.06)" },
@@ -65,14 +68,26 @@ export default function ActivityChart({ activities }) {
 
   return (
     <div className="glass-card">
-      <h2 className="section-title"><span className="title-glow">Activity</span> Breakdown</h2>
+      <h2 className="section-title">
+        <span className="title-glow">Activity</span> Breakdown
+      </h2>
       <div className="chart-legend">
-        <span className="legend-item"><span className="legend-dot" style={{ background: "rgba(0,180,255,0.8)", boxShadow: "0 0 6px #00b4ff" }} />Attack count</span>
-        <span className="legend-item"><span className="legend-dot" style={{ background: "rgba(255,60,60,0.8)", boxShadow: "0 0 6px #ff3c3c" }} />Fatal rate %</span>
+        <span className="legend-item">
+          <span className="legend-dot" style={{ background: "rgba(0,180,255,0.8)", boxShadow: "0 0 6px #00b4ff" }} />
+          Attack count
+        </span>
+        <span className="legend-item">
+          <span className="legend-dot" style={{ background: "rgba(255,60,60,0.8)", boxShadow: "0 0 6px #ff3c3c" }} />
+          Fatal rate %
+        </span>
       </div>
       <div style={{ position: "relative", height: 240 }}>
         <Bar data={chartData} options={options} />
       </div>
+      <p className="card-footnote">
+        Free diving has the highest fatal rate (45%) despite low attack volume.
+        Surfing is by far the most common activity but one of the safest (9% fatal rate).
+      </p>
     </div>
   );
 }

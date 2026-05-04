@@ -3,11 +3,14 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip } fro
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 export default function FeatureImportance({ data }) {
+  // Sort descending so highest bar is on top
+  const sorted = [...data].sort((a, b) => b.importance - a.importance);
+
   const chartData = {
-    labels: data.map(d => d.feature),
+    labels: sorted.map(d => d.feature),
     datasets: [{
-      data: data.map(d => d.importance),
-      backgroundColor: data.map(d => d.color),
+      data: sorted.map(d => d.importance),
+      backgroundColor: sorted.map(d => d.color),
       borderRadius: 4,
       borderSkipped: false,
     }],
@@ -25,14 +28,16 @@ export default function FeatureImportance({ data }) {
         borderWidth: 1,
         titleColor: "#00e5ff",
         bodyColor: "#aaccdd",
-        callbacks: { label: ctx => ` Importance score: ${ctx.parsed.x.toFixed(2)}` },
+        callbacks: {
+          label: ctx => ` Importance score: ${ctx.parsed.x.toFixed(2)}`,
+        },
       },
     },
     scales: {
       x: {
         grid: { color: "rgba(0,180,255,0.06)" },
         ticks: { color: "#4a8fa8", font: { size: 11 } },
-        max: 0.5,
+        max: 0.45,
       },
       y: {
         grid: { display: false },
@@ -43,11 +48,16 @@ export default function FeatureImportance({ data }) {
 
   return (
     <div className="glass-card">
-      <h2 className="section-title"><span className="title-glow">Feature</span> Importance</h2>
+      <h2 className="section-title">
+        <span className="title-glow">Feature</span> Importance
+      </h2>
       <div style={{ position: "relative", height: 200 }}>
         <Bar data={chartData} options={options} />
       </div>
-      <p className="card-footnote">Activity type dominates - location doesn't matter that much.</p>
+      <p className="card-footnote">
+        Age is the strongest predictor (0.36) — victim age matters more than where or what they were doing.
+        Sex is nearly irrelevant at 0.02.
+      </p>
     </div>
   );
 }

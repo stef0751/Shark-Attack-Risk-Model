@@ -26,30 +26,49 @@ export default function App() {
             Predicting fatal shark attack outcomes using machine learning · Global Shark Attack Dataset
           </p>
           <div className="header-badges">
-            <span className="header-badge">{dataset.cleaned.toLocaleString()} cleaned records</span>
+            <span className="header-badge">{dataset.raw.toLocaleString()} raw records</span>
+            <span className="header-badge">{dataset.cleaned.toLocaleString()} after cleaning</span>
             <span className="header-badge">3 models compared</span>
             <span className="header-badge">Random Forest selected</span>
             <span className="header-badge">Live risk calculator</span>
           </div>
           <div className="team-row">
-            <div className="team-chip">
-              <span className="team-avatar" style={{ background: "#185FA5" }}>S</span>
-              Steffina Jerald
-            </div>
-            <div className="team-chip">
-              <span className="team-avatar" style={{ background: "#0F6E56" }}>T</span>
-              Tiya Bordia
-            </div>
+            {[
+              { initial: "S", name: "Steffina Jerald", color: "#185FA5" },
+              { initial: "T", name: "Tiya Bordia",     color: "#0F6E56" },
+            ].map(({ initial, name, color }) => (
+              <div className="team-chip" key={name}>
+                <span className="team-avatar" style={{ background: color }}>{initial}</span>
+                {name}
+              </div>
+            ))}
           </div>
         </header>
 
         {/* ── Dataset Overview ── */}
         <p className="section-label">Dataset overview</p>
         <div className="metrics-grid" style={{ marginBottom: "2rem" }}>
-          <MetricCard label="Raw records"      rawValue={dataset.raw}     suffix="" sub="original dataset rows" />
-          <MetricCard label="After cleaning"   rawValue={dataset.cleaned} suffix="" sub="valid Y/N fatal labels" />
-          <MetricCard label="Fatal attacks"    rawValue={dataset.fatal}   suffix="" sub={`${fatalityPct}% of cleaned dataset`} accent="#ff6b6b" />
-          <MetricCard label="Model rows"       rawValue={dataset.modelRows} suffix="" sub="after feature dropna" />
+          <MetricCard
+            label="Raw records"
+            rawValue={dataset.raw}
+            sub="original dataset rows"
+          />
+          <MetricCard
+            label="After cleaning"
+            rawValue={dataset.cleaned}
+            sub="valid Y/N fatal labels + key fields present"
+          />
+          <MetricCard
+            label="Fatal attacks"
+            rawValue={dataset.fatal}
+            sub={`${fatalityPct}% of cleaned dataset`}
+            accent="#ff6b6b"
+          />
+          <MetricCard
+            label="Model rows"
+            rawValue={dataset.modelRows}
+            sub="after dropna on all 4 features"
+          />
         </div>
 
         <div className="glow-divider" />
@@ -83,11 +102,18 @@ export default function App() {
         {/* ── Key Finding ── */}
         <div className="finding-banner">
           <div>
-            <strong>Key finding</strong>
+            <strong>Key findings</strong>
+            <p>
+               <div className="finding-banner">
+          <div>
             <p>
             The strongest predictors were activity type, shark species, and injury severity.  
             Diving and free diving were far more fatal than surfing or swimming. Highest risk scores 
             showed up in scenarios with larger species and more isolated waters. Some of these results were genuinely surprising and showed how much more nuanced the story gets when you actually look at the data instead of just going off what you see in the news.
+            </p>
+          </div>
+        </div>
+
             </p>
           </div>
         </div>

@@ -32,7 +32,10 @@ export default function RiskHistogram({ bins }) {
       },
     },
     scales: {
-      x: { grid: { display: false }, ticks: { color: "#4a8fa8", font: { size: 10 }, maxRotation: 45 } },
+      x: {
+        grid: { display: false },
+        ticks: { color: "#4a8fa8", font: { size: 10 }, maxRotation: 45 },
+      },
       y: {
         grid: { color: "rgba(0,180,255,0.06)" },
         ticks: { color: "#4a8fa8", font: { size: 11 } },
@@ -42,7 +45,9 @@ export default function RiskHistogram({ bins }) {
 
   return (
     <div className="glass-card">
-      <h2 className="section-title"><span className="title-glow">Risk Score</span> Distribution</h2>
+      <h2 className="section-title">
+        <span className="title-glow">Risk Score</span> Distribution
+      </h2>
       <div style={{ position: "relative", height: 200 }}>
         <Bar data={chartData} options={options} />
       </div>
@@ -54,6 +59,10 @@ export default function RiskHistogram({ bins }) {
           </span>
         ))}
       </div>
+      <p className="card-footnote">
+        Most test cases cluster in the low-risk range. The high-risk tail (0.6–1.0) corresponds
+        to older victims doing free diving or spearfishing in high-fatality regions.
+      </p>
     </div>
   );
 }
